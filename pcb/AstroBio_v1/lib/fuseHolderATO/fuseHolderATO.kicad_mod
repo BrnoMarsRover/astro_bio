@@ -1,0 +1,266 @@
+(footprint "fuseHolderATO"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "car blade fuse direct solder")
+	(tags "car blade fuse")
+	(property "Reference" "F2"
+		(at 15.65 0 90)
+		(layer "F.SilkS")
+		(uuid "124e7a63-066b-4fa9-9739-5237b6a3e294")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "2A"
+		(at 4.6 4 0)
+		(layer "F.Fab")
+		(uuid "651c7687-374c-413d-a5cd-a31fd965941b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "~"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0f575c5d-c13a-45c3-a139-d0f71cb6cb52")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Fuse"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "7287219b-1c10-4fe6-91f3-cbcc437a3cc1")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -5.47 -3.12)
+		(end -5.47 3.12)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "432e0e74-0c76-4d5b-b1dc-4fcb90d97c46")
+	)
+	(fp_line
+		(start -5.47 -3.12)
+		(end 14.77 -3.12)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b49b3b9f-4947-459f-8533-dc8dce7f4d8d")
+	)
+	(fp_line
+		(start -4.95 -2.5)
+		(end 14.25 -2.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9fa6705f-8301-49d4-9053-80d557a0a592")
+	)
+	(fp_line
+		(start -4.95 2.5)
+		(end -4.95 -2.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "ad8bdc34-ccfe-45c2-99de-f760729cb7dd")
+	)
+	(fp_line
+		(start 14.25 -2.5)
+		(end 14.25 2.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "83adcb39-556a-4385-9784-03475838fbbf")
+	)
+	(fp_line
+		(start 14.25 2.5)
+		(end -4.95 2.5)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "01126999-c96d-401b-825d-236c11d0a78f")
+	)
+	(fp_line
+		(start 14.77 3.12)
+		(end -5.47 3.12)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6916c609-7503-4f47-b1ff-063888512a87")
+	)
+	(fp_line
+		(start 14.77 3.12)
+		(end 14.77 -3.12)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e66fc25c-ca2d-4b85-8dfe-34ccc9677401")
+	)
+	(fp_line
+		(start -5.6 -3.25)
+		(end -5.6 3.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "1d6c0218-a059-4d9e-aebd-dd6159623da5")
+	)
+	(fp_line
+		(start -5.6 -3.25)
+		(end 14.9 -3.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "8f497742-67b0-470c-b7dd-492ac3f725cf")
+	)
+	(fp_line
+		(start 14.9 3.25)
+		(end -5.6 3.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6c983672-30e0-4257-9979-0ce0b777cd92")
+	)
+	(fp_line
+		(start 14.9 3.25)
+		(end 14.9 -3.25)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "83e35689-60ec-42ef-8f00-9c67464b52f8")
+	)
+	(fp_line
+		(start -5.35 -3)
+		(end 14.65 -3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "5a14b415-c3bf-4d5e-b6cc-e620ccbbd044")
+	)
+	(fp_line
+		(start -5.35 3)
+		(end -5.35 -3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "ad3f08de-b1ec-40c0-971f-82ff8448e3c1")
+	)
+	(fp_line
+		(start 4.95 0)
+		(end 4.35 0)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "3969bf26-d650-4b41-9e1e-000935292f29")
+	)
+	(fp_line
+		(start 14.65 -3)
+		(end 14.65 3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "cc31f70c-5467-49f7-87e8-dac774c7dad3")
+	)
+	(fp_line
+		(start 14.65 3)
+		(end -5.35 3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "0e3375bc-44ae-464b-b074-53e6ff89ca7f")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 4.75 -1.5 0)
+		(layer "F.Fab")
+		(uuid "6a32b41c-cd30-421f-a629-27ff7438513e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole oval
+		(at 0 0)
+		(size 9.1 3.8)
+		(drill oval 7.1 2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "eaaea96b-e797-406a-affa-d339293b31de")
+	)
+	(pad "2" thru_hole oval
+		(at 9.5 0)
+		(size 9.1 3.8)
+		(drill oval 7.1 2)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "a47a454d-6834-4ddf-ab41-2e57f55aa168")
+	)
+	(embedded_fonts no)
+	(model "${KICAD8_3DMODEL_DIR}/Fuse.3dshapes/Fuse_Blade_ATO_directSolder.wrl"
+		(offset
+			(xyz 4.571999931 0 0)
+		)
+		(scale
+			(xyz 0.39 0.39 0.39)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
