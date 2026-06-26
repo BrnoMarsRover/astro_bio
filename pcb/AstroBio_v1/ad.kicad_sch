@@ -2825,7 +2825,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Regulator_Linear:LM7805_TO220"
+		(symbol "Regulator_Linear:TLV75533PDBV"
 			(pin_names
 				(offset 0.254)
 			)
@@ -2835,7 +2835,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U"
-				(at -3.81 3.175 0)
+				(at -3.81 5.715 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2844,8 +2844,8 @@
 					)
 				)
 			)
-			(property "Value" "LM7805_TO220"
-				(at 0 3.175 0)
+			(property "Value" "TLV75533PDBV"
+				(at 0 5.715 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2855,8 +2855,8 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-				(at 0 5.715 0)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+				(at 0 8.255 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -2867,8 +2867,8 @@
 					)
 				)
 			)
-			(property "Datasheet" "https://www.onsemi.cn/PowerSolutions/document/MC7800-D.PDF"
-				(at 0 -1.27 0)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlv755p.pdf"
+				(at 0 1.27 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -2878,7 +2878,7 @@
 					)
 				)
 			)
-			(property "Description" "Positive 1A 35V Linear Regulator, Fixed Output 5V, TO-220"
+			(property "Description" "500mA Low Dropout Voltage Regulator, Fixed Output 3.3V, SOT-23-5"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2889,7 +2889,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "Voltage Regulator 1A Positive"
+			(property "ki_keywords" "LDO Regulator Fixed Positive"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2900,7 +2900,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "TO?220*"
+			(property "ki_fp_filters" "SOT?23*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2911,9 +2911,9 @@
 					)
 				)
 			)
-			(symbol "LM7805_TO220_0_1"
+			(symbol "TLV75533PDBV_0_1"
 				(rectangle
-					(start -5.08 1.905)
+					(start -5.08 4.445)
 					(end 5.08 -5.08)
 					(stroke
 						(width 0.254)
@@ -2924,11 +2924,11 @@
 					)
 				)
 			)
-			(symbol "LM7805_TO220_1_1"
+			(symbol "TLV75533PDBV_1_1"
 				(pin power_in line
-					(at -7.62 0 0)
+					(at -7.62 2.54 0)
 					(length 2.54)
-					(name "VI"
+					(name "IN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2961,10 +2961,10 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 7.62 0 180)
+				(pin input line
+					(at -7.62 0 0)
 					(length 2.54)
-					(name "VO"
+					(name "EN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2972,6 +2972,43 @@
 						)
 					)
 					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at 5.08 0 180)
+					(length 2.54)
+					(hide yes)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4140,10 +4177,10 @@
 		(uuid "108a5af0-82e7-4a7b-ac7b-21ae09eb858a")
 	)
 	(junction
-		(at 111.76 40.64)
+		(at 124.46 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2ece55af-6cf4-41f7-8688-82d88249b3c5")
+		(uuid "21b6e7cd-84ef-4069-ae97-152d6f4d9b68")
 	)
 	(junction
 		(at 59.69 219.71)
@@ -4162,12 +4199,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3edff003-bd1c-4e92-82b3-2919a519c9a1")
-	)
-	(junction
-		(at 133.35 55.88)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "52b35838-5c65-4afe-9660-f7e5dacb3f03")
 	)
 	(junction
 		(at 43.18 40.64)
@@ -4230,10 +4261,22 @@
 		(uuid "88f98ed7-256e-4a75-8470-d3ca2285e286")
 	)
 	(junction
+		(at 111.76 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9aefde0d-8b42-4dd1-a8ba-9714de323d72")
+	)
+	(junction
 		(at 107.95 222.25)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9c1de423-70d0-4ef7-bd27-0311c4ddab94")
+	)
+	(junction
+		(at 133.35 55.88)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aaa812fd-38e4-4fb2-8570-8ee65d1596dc")
 	)
 	(junction
 		(at 275.59 21.59)
@@ -4790,6 +4833,16 @@
 			(type default)
 		)
 		(uuid "382fefee-66b4-444c-9ad9-eedd7ed9715a")
+	)
+	(wire
+		(pts
+			(xy 124.46 40.64) (xy 125.73 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3a21dad5-6821-48d8-b72a-0ff64abfe222")
 	)
 	(wire
 		(pts
@@ -5603,7 +5656,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 40.64) (xy 125.73 40.64)
+			(xy 111.76 40.64) (xy 124.46 40.64)
 		)
 		(stroke
 			(width 0)
@@ -5673,6 +5726,16 @@
 	)
 	(wire
 		(pts
+			(xy 125.73 43.18) (xy 124.46 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd9e2462-e54c-41b5-b5ec-b12cd942528d")
+	)
+	(wire
+		(pts
 			(xy 72.39 234.95) (xy 92.71 234.95)
 		)
 		(stroke
@@ -5730,6 +5793,16 @@
 			(type default)
 		)
 		(uuid "d2140227-b4de-4800-a0ba-42504155826c")
+	)
+	(wire
+		(pts
+			(xy 124.46 43.18) (xy 124.46 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d23213e4-e4a1-49b8-9093-8bb9208bbba9")
 	)
 	(wire
 		(pts
@@ -6103,7 +6176,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 48.26) (xy 133.35 55.88)
+			(xy 133.35 50.8) (xy 133.35 55.88)
 		)
 		(stroke
 			(width 0)
@@ -12567,6 +12640,96 @@
 		)
 	)
 	(symbol
+		(lib_id "Regulator_Linear:TLV75533PDBV")
+		(at 133.35 43.18 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b7914e9c-5d41-418b-878a-4f2ec9ecf8ab")
+		(property "Reference" "U5"
+			(at 133.35 34.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TLV75533PDBV"
+			(at 133.35 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(at 133.35 34.925 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tlv755p.pdf"
+			(at 133.35 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "500mA Low Dropout Voltage Regulator, Fixed Output 3.3V, SOT-23-5"
+			(at 133.35 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "97f42229-919e-4d43-a771-801c5ebae935")
+		)
+		(pin "2"
+			(uuid "04b4eac4-bfa5-4743-9f5d-04422e9e8da2")
+		)
+		(pin "4"
+			(uuid "383eeba9-a0c9-42f3-a668-45a5d493d184")
+		)
+		(pin "1"
+			(uuid "e6f8d3cd-094b-48fe-9e14-914cf9af3e46")
+		)
+		(pin "5"
+			(uuid "9bfafa6c-0f3d-433b-81ee-8f0bb0babf60")
+		)
+		(instances
+			(project "ad"
+				(path "/de0356da-848d-4af9-ae4e-f0143557b5d0"
+					(reference "U5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 309.88 69.85 90)
 		(unit 1)
@@ -12874,90 +13037,6 @@
 			(project "ad"
 				(path "/de0356da-848d-4af9-ae4e-f0143557b5d0"
 					(reference "#PWR019")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Regulator_Linear:LM7805_TO220")
-		(at 133.35 40.64 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cad3d2e2-81d7-4cb9-b209-a8e69c3c710d")
-		(property "Reference" "U3"
-			(at 133.35 34.29 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LM3940"
-			(at 133.35 36.83 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
-			(at 133.35 34.925 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.onsemi.cn/PowerSolutions/document/MC7800-D.PDF"
-			(at 133.35 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Positive 1A 35V Linear Regulator, Fixed Output 5V, TO-220"
-			(at 133.35 40.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "3"
-			(uuid "8111b719-4cb2-47e0-87cc-0560fddfc848")
-		)
-		(pin "1"
-			(uuid "99bdc1d2-cd8a-4897-9974-ee0e58172bc6")
-		)
-		(pin "2"
-			(uuid "b364a338-91a5-425c-a498-1c18b3ba9276")
-		)
-		(instances
-			(project "ad"
-				(path "/de0356da-848d-4af9-ae4e-f0143557b5d0"
-					(reference "U3")
 					(unit 1)
 				)
 			)
