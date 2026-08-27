@@ -41,7 +41,7 @@ volatile float currentTemp = 0.0;
 
 // Flow sensor
 #define PULSES_PER_LITER  5025.83
-#define FLOW_INTERVAL_MS  1000UL
+#define FLOW_INTERVAL_MS  100UL
 
 volatile float currentPH = 0.0;
 volatile float rawPH = 0.0;
@@ -51,7 +51,7 @@ volatile float rawPH = 0.0;
 #define PURGE_TIME_MS 5000UL
 #define MAX_PUMP_TIME_MS 300000UL
 #define NO_FLOW_TIMEOUT_MS 5000UL
-#define LEVEL_CONFIRMATION_MS 1000UL
+#define LEVEL_CONFIRMATION_MS 3000UL
 #define MIN_FLOW_PULSES_PER_INTERVAL 1UL
 volatile unsigned long pulseCount = 0;   // Instant flow rate
 volatile unsigned long totalPulses = 0;  // Total volume

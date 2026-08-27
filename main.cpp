@@ -28,6 +28,7 @@ void mainControlTask(void *pvParameters){
   unsigned long measureStartedAt = 0;
   unsigned long pumpStartedAt = 0;
   unsigned long lastFlowAt = 0;
+  unsigned long upperLevelDetectedAt = 0;
   bool lowerLevelReported = false;
   bool upperLevelReported = false;
 
@@ -123,6 +124,7 @@ void mainControlTask(void *pvParameters){
           pumpStartedAt = millis();
           lastFlowAt = pumpStartedAt;
           lastFlowPulseAt = pumpStartedAt;
+          upperLevelDetectedAt = 0;
           lowerLevelReported = false;
           upperLevelReported = false;
           noInterrupts();
@@ -145,27 +147,42 @@ void mainControlTask(void *pvParameters){
             pumpStartedAt = 0;
             pumpingActive = false;
             currentState = STATE_PURGE;
-          } else if (!heightSensorState_2 && !upperLevelReported) {
-            s.printf("Horni hladinovy snimac: voda detekovana pri objemu %.2f ml\n",
-                     pumpedVolume_mL);
-            upperLevelReported = true;
+          } else if (!heightSensorState_2) {
+            if (!upperLevelReported) {
+              s.printf("Horni hladinovy snimac: voda detekovana pri objemu %.2f ml\n",
+                       pumpedVolume_mL);
+              upperLevelReported = true;
+            }
+            if (upperLevelDetectedAt == 0) {
+              upperLevelDetectedAt = millis();
+            } else if (millis() - upperLevelDetectedAt >= LEVEL_CONFIRMATION_MS) {
+              digitalWrite(EN_PIN, HIGH);
+              s.println(F("Horni hladina potvrzena 3 s. Pumpovani ukonceno kvuli ochrane proti preteceni."));
+              pumpStartedAt = 0;
+              pumpingActive = false;
+              currentState = STATE_PURGE;
+            }
+          } else {
+            upperLevelDetectedAt = 0;
           }
-          if (!heightSensorState_1 && !lowerLevelReported) {
-            s.printf("Spodni hladinovy snimac: voda detekovana pri objemu %.2f ml\n",
-                     pumpedVolume_mL);
-            lowerLevelReported = true;
-          } else if (heightSensorState_1) {
-            lowerLevelReported = false;
-          }
-          lastFlowAt = lastFlowPulseAt;
-          if (millis() - lastFlowAt >= NO_FLOW_TIMEOUT_MS) {
-            setError(4, "Prutok se zastavil");
-            pumpStartedAt = 0;
-            pumpingActive = false;
-          } else if (millis() - pumpStartedAt >= MAX_PUMP_TIME_MS) {
-            setError(5, "Pumpovani prekrocilo casovy limit");
-            pumpStartedAt = 0;
-            pumpingActive = false;
+          if (currentState == STATE_PUMPING && pumpingActive) {
+            if (!heightSensorState_1 && !lowerLevelReported) {
+              s.printf("Spodni hladinovy snimac: voda detekovana pri objemu %.2f ml\n",
+                       pumpedVolume_mL);
+              lowerLevelReported = true;
+            } else if (heightSensorState_1) {
+              lowerLevelReported = false;
+            }
+            lastFlowAt = lastFlowPulseAt;
+            if (millis() - lastFlowAt >= NO_FLOW_TIMEOUT_MS) {
+              setError(4, "Prutok se zastavil");
+              pumpStartedAt = 0;
+              pumpingActive = false;
+            } else if (millis() - pumpStartedAt >= MAX_PUMP_TIME_MS) {
+              setError(5, "Pumpovani prekrocilo casovy limit");
+              pumpStartedAt = 0;
+              pumpingActive = false;
+            }
           }
         }
         break;
@@ -174,9 +191,12 @@ void mainControlTask(void *pvParameters){
       case STATE_PURGE: {
         if (takeCommand("purg")) {
           purgeActive = true;
+          digitalWrite(DIR_PIN, PUMP_DIR == HIGH ? HIGH : LOW);
+          digitalWrite(EN_PIN, LOW);
           s.println(F("Odpumpovani zbytku hadicky. Prutokomer je vypnuty."));
           vTaskDelay(pdMS_TO_TICKS(PURGE_TIME_MS));
           purgeActive = false;
+          digitalWrite(EN_PIN, HIGH);
           s.println(F("Cisteni dokonceno."));
           currentState = STATE_DONE;
         }
@@ -342,7 +362,8 @@ void flowSensorTask(void *pvParameters) {
       pulseCount = 0;
       interrupts();
       pumpedVolume_mL = (float)total / PULSES_PER_LITER * 1000.0f;
-      float flowRate = (float)pulses / PULSES_PER_LITER * 60000.0f;
+      float flowRate = (float)pulses / PULSES_PER_LITER *
+               (60000000.0f / FLOW_INTERVAL_MS);
       if (pulses >= MIN_FLOW_PULSES_PER_INTERVAL) {
         lastFlowPulseAt = millis();
       }
@@ -350,7 +371,7 @@ void flowSensorTask(void *pvParameters) {
         s.printf("Prutok: %.2f ml/min | Objem: %.2f ml\n", flowRate, pumpedVolume_mL);
       }
     }
-    vTaskDelay(pdMS_TO_TICKS(100)); 
+    vTaskDelay(pdMS_TO_TICKS(FLOW_INTERVAL_MS)); 
   }
 }
 
