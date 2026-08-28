@@ -448,6 +448,21 @@ void uartTask(void *pvParatmeters){
       if(recieved == '\n' || recieved == '\r'){
         if(cmdL > 0){
           command[cmdL] = '\0';
+
+          // `id` is answered HERE rather than in the state machine. A host
+          // probing the USB port has to be able to identify this board in any
+          // state -- including while pumping -- and takeCommand() clears
+          // commandReady for whatever word it was handed, so routing `id`
+          // through the state machine would swallow it without a reply.
+          if(strcmp(command, "id") == 0){
+            s.printf("{\"firmware\":\"%s\",\"version\":\"%s\","
+                     "\"protocol\":%d,\"state\":%d}\n",
+                     FIRMWARE_NAME, FIRMWARE_VERSION,
+                     FIRMWARE_PROTOCOL, (int)currentState);
+            cmdL = 0;
+            continue;
+          }
+
           s.print("UART CMD: ");
           s.println(command);
           commandReady = true;

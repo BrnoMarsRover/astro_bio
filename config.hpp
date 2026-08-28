@@ -1,6 +1,16 @@
 #include <Arduino.h>
 #include <TMCStepper.h>
 
+// Firmware identity ──────────────────────────────────────
+// Answered by the `id` command. Every Freya ESP32 is an ESP32-DevKitC behind a
+// CP2102 and they are descriptor-identical -- same 10c4:ea60, same Silicon Labs
+// factory serial "0001", same product string -- so a host cannot tell the boards
+// apart from the USB port alone, and /dev/serial/by-id collides between them.
+// The firmware name is the only thing that differs.
+#define FIRMWARE_NAME      "freya-astro-bio-module"
+#define FIRMWARE_VERSION   "1.0.0"
+#define FIRMWARE_PROTOCOL  1
+
 // Pins (ESP32-WROOM-32, 36-pin devkit) ────────────────────
 #define EN_PIN     19
 #define STEP_PIN   18
